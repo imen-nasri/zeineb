@@ -1,0 +1,124 @@
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8; /* Light background */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  /* Full-page container for centering the form */
+  .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(135deg, #ff4081, #d5006d); /* Pink gradient background */
+    padding: 2em;
+  }
+  
+  /* Form container styles */
+  .add-product-container {
+    width: 100%;
+    max-width: 450px; /* Adjusted max-width for more compact form */
+    background-color: white;
+    padding: 1.8em 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border: 1px solid #e0e0e0; /* Soft border */
+  }
+  
+  /* Heading styles */
+  h2.form-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Form group styles */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+  }
+  
+  /* Label styles */
+  .form-group label {
+    font-size: 0.9em;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  /* Input styles */
+  .form-group input {
+    padding: 10px;
+    font-size: 0.9em; /* Slightly smaller font size */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    color: #333;
+  }
+  
+  /* Input focus state */
+  .form-group input:focus {
+    border-color: #ff4081;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 64, 129, 0.5);
+  }
+  
+  /* Button styles */
+  button.submit-btn {
+    padding: 12px;
+    font-size: 1em; /* Slightly smaller button text */
+    color: white;
+    background-color: #ff4081;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1.5em;
+  }
+  
+  button.submit-btn:hover {
+    background-color: #d5006d;
+  }
+  
+  /* Disabled button styles */
+  button.submit-btn:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .page-container {
+      padding: 1em;
+    }
+  
+    .add-product-container {
+      padding: 1.5em;
+    }
+  
+    h2.form-title {
+      font-size: 1.4em;
+    }
+  
+    .form-group input {
+      padding: 8px;
+      font-size: 0.85em;
+    }
+  
+    button.submit-btn {
+      font-size: 0.9em;
+    }
+  }
+  

@@ -1,0 +1,109 @@
+/* Styles for centering the login form */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  position: relative;
+}
+
+.card-header {
+  background-color: #007bff; 
+  color: white;
+  padding: 15px 50px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  top: 140px; 
+  z-index: 1; 
+}
+
+.card-header i {
+  font-size: 20px; /* Adjust the icon size */
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
+
+.login-card {
+  background-color: white;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin-top: 40px; /* Give space for the header */
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 12px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}

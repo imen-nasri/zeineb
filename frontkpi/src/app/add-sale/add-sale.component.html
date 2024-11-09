@@ -1,0 +1,77 @@
+
+<div class="add-sale-container">
+  <div class="step-container">
+    <!-- Step Navigation (Tabs) -->
+    <div class="step-tabs">
+      <div [ngClass]="{'active': currentStep === 1, 'completed': currentStep > 1}" (click)="goToStep(1)">Step 1</div>
+      <div [ngClass]="{'active': currentStep === 2, 'completed': currentStep > 2}" (click)="goToStep(2)">Step 2</div>
+      <div [ngClass]="{'active': currentStep === 3, 'completed': currentStep > 3}" (click)="goToStep(3)">Step 3</div>
+    </div>
+
+    <!-- Step 1: Sale Information -->
+    <form *ngIf="currentStep === 1">
+      <div>
+        <label for="dateVente">Sale Date:</label>
+        <input id="dateVente" formControlName="dateVente" type="date" required />
+        <small *ngIf="saleForm.get('dateVente')?.invalid">Date is required.</small>
+      </div>
+
+      <div>
+        <label for="idClient">Client ID:</label>
+        <input id="idClient" formControlName="idClient" required />
+        <small *ngIf="saleForm.get('idClient')?.invalid">Client ID is required.</small>
+      </div>
+
+      <div>
+        <label for="idVendeur">Seller ID:</label>
+        <input id="idVendeur" formControlName="idVendeur" required />
+        <small *ngIf="saleForm.get('idVendeur')?.invalid">Seller ID is required.</small>
+      </div>
+
+      <div>
+        <button type="button" (click)="nextStep()">Next</button>
+      </div>
+    </form>
+
+    <!-- Step 2: Product Entry -->
+    <form *ngIf="currentStep === 2" class="step-2">
+      <div *ngFor="let produit of produits.controls; let i = index" [formGroupName]="i" class="product-entry">
+        <label for="idProduit">Product ID:</label>
+        <input id="idProduit" formControlName="idProduit" required />
+        <small *ngIf="produit.get('idProduit')?.invalid">Product ID is required.</small>
+
+        <label for="quantite">Quantity:</label>
+        <input id="quantite" type="number" formControlName="quantite" required min="1" />
+        <small *ngIf="produit.get('quantite')?.invalid">Quantity must be at least 1.</small>
+
+        <label for="prixUnitaire">Unit Price:</label>
+        <input id="prixUnitaire" type="number" formControlName="prixUnitaire" required min="0" />
+        <small *ngIf="produit.get('prixUnitaire')?.invalid">Unit price must be at least 0.</small>
+<br>
+        <button type="button" (click)="removeProduct(i)">Remove Product</button>
+      </div>
+      <button type="button" (click)="addProduct()">Add Product</button>
+
+      <div>
+        <button type="button" (click)="prevStep()">Previous</button>&nbsp;&nbsp;&nbsp;
+        <button type="button" (click)="nextStep()">Next</button>
+      </div>
+    </form>
+
+    <!-- Step 3: Total & Submit -->
+    <form *ngIf="currentStep === 3">
+      <div>
+        <label for="montantTotal">Total Amount:</label>
+        <input id="montantTotal" formControlName="montantTotal" type="number" readonly />
+      </div>
+
+      <div>
+        <button type="submit" [disabled]="saleForm.invalid">Submit Sale</button>
+      </div>
+
+      <div>
+        <button type="button" (click)="prevStep()">Previous</button>
+      </div>
+    </form>
+  </div>
+</div>

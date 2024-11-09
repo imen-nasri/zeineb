@@ -1,0 +1,13 @@
+<div *ngIf="bestSeller; else errorTemplate">
+    <h2>Best Selling Product</h2>
+    <p><strong>Name:</strong> {{ bestSeller.nom }}</p>
+    <p><strong>Category:</strong> {{ bestSeller.categorie }}</p>
+    <p><strong>Unit Price:</strong> {{ bestSeller.prixUnitaire }} USD</p>
+    <p><strong>Total Sales:</strong> {{ bestSeller.ventesTotales }}</p>
+    <p><strong>Total Revenue:</strong> {{ bestSeller.revenuTotal }} USD</p>
+  </div>
+  
+  <ng-template #errorTemplate>
+    <p>{{ errorMessage }}</p>
+  </ng-template>
+  

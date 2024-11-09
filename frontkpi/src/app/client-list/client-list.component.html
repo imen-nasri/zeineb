@@ -1,0 +1,22 @@
+<h2 class="section-title">New Clients</h2>
+<div class="clients-grid-horizontal">
+  <div *ngFor="let client of clients" class="client-card">
+    <div class="client-info">
+      <strong>Name:</strong> {{ client.nom }} <br>
+      <strong>Address:</strong> {{ client.adresse }} <br>
+      <strong>Telephone:</strong> {{ client.telephone }} <br>
+      <strong>Email:</strong> {{ client.email }} <br>
+      <strong>Date Created:</strong> {{ client.dateCreation | date:'shortDate' }} <br>
+    </div>
+    <div class="orders-info">
+      <strong>Orders:</strong>
+      <div class="orders-list">
+        <div *ngFor="let commande of client.commandes" class="order-card">
+          <strong>Order ID:</strong> {{ commande.idCommande }} <br>
+          <strong>Date:</strong> {{ commande.dateCommande | date:'shortDate' }} <br>
+          <strong>Total:</strong> {{ commande.montantTotal }} €
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

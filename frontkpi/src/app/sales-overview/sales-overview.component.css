@@ -1,0 +1,84 @@
+.main-content {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .section-title {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+  }
+  
+  .table-container {
+    width: 100%;
+    max-width: 900px; /* Augmentation de la largeur du tableau */
+    overflow-x: auto;
+  }
+  
+  .sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sales-table th,
+  .sales-table td {
+    padding: 10px;
+    text-align: left;
+    font-size: 0.9em;  /* Réduction de la taille du texte */
+    color: #333;
+  }
+  
+  .sales-table th {
+    background-color: #ffe6f1;  /* Couleur de fond rose clair */
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #d5006d;  /* Rose foncé */
+  }
+  
+  .sales-table tr {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .sales-table tr:hover {
+    background-color: #fce4ec;  /* Couleur de survol rose clair */
+    transform: scale(1.02);  /* Légère augmentation de la taille au survol */
+  }
+  
+  .sales-item {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .sales-item:last-child {
+    border-bottom: none;
+  }
+  
+  .loading, .error {
+    font-size: 1.2em;
+    text-align: center;
+    color: #ff4081;  /* Couleur rose pour les messages */
+    margin-top: 2em;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .main-content {
+      padding: 1em;
+    }
+  
+    .sales-table th,
+    .sales-table td {
+      padding: 8px;
+      font-size: 0.85em; /* Réduction de la taille pour les petits écrans */
+    }
+  }
+  

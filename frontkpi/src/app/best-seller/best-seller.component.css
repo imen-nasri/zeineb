@@ -1,0 +1,95 @@
+.dashboard-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    color: #333333;
+    padding: 1em;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: box-shadow 0.3s;
+    position: fixed; /* Keeps the sidebar fixed as you scroll */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Makes the sidebar full height of the viewport */
+    overflow-y: auto; /* Allows scrolling within the sidebar if content overflows */
+  }
+  
+  .sidebar:hover {
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #1e3a8a;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  .nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .nav ul li {
+    margin: 1em 0;
+  }
+  
+  .nav ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333333;
+    padding: 0.7em;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .nav ul li a:hover {
+    background-color: #e3e8f0;
+    color: #1e3a8a;
+    transform: translateX(5px);
+  }
+  
+  .icon {
+    font-size: 1.2em;
+    margin-right: 12px;
+    color: #1e3a8a;
+  }
+  
+  .documentation {
+    margin-top: 2em;
+  }
+  
+  .documentation h3 {
+    color: #333333;
+    font-weight: bold;
+  }
+  
+  .documentation ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .documentation ul li a {
+    text-decoration: none;
+    color: #333333;
+    display: block;
+    padding: 0.5em;
+    transition: color 0.3s, transform 0.2s;
+  }
+  
+  .documentation ul li a:hover {
+    color: #1e3a8a;
+    transform: translateX(5px);
+  }
+  
+  /* Main content adjustment to avoid overlap */
+  .main-content {
+    margin-left: 250px; /* Creates space for the fixed sidebar */
+    padding: 1em;
+  }
+  

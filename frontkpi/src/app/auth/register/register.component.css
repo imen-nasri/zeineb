@@ -1,0 +1,63 @@
+/* register.component.scss */
+
+body, html {
+    height: 100%;                /* Ensure the body takes up the full height of the viewport */
+    margin: 0;                   /* Remove default margin */
+    display: flex;               /* Use Flexbox for centering */
+    justify-content: center;     /* Center the form horizontally */
+    align-items: center;         /* Center the form vertically */
+    font-family: Arial, sans-serif;
+  }
+  
+  .register-form {
+    width: 100%;
+    max-width: 400px;            /* Limit the width to 400px */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow around the form */
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:disabled {
+    background-color: #ccc;
+  }
+  
+  .submit-button:hover:enabled {
+    background-color: #0056b3;
+  }
+  
