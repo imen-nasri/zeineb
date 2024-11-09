@@ -1,63 +1,71 @@
-/* register.component.scss */
+/* Center the card */
+.card {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 50px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-body, html {
-    height: 100%;                /* Ensure the body takes up the full height of the viewport */
-    margin: 0;                   /* Remove default margin */
-    display: flex;               /* Use Flexbox for centering */
-    justify-content: center;     /* Center the form horizontally */
-    align-items: center;         /* Center the form vertically */
-    font-family: Arial, sans-serif;
-  }
-  
-  .register-form {
-    width: 100%;
-    max-width: 400px;            /* Limit the width to 400px */
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow around the form */
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 12px;
-  }
-  
-  .submit-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .submit-button:disabled {
-    background-color: #ccc;
-  }
-  
-  .submit-button:hover:enabled {
-    background-color: #0056b3;
-  }
-  
+/* Header styling */
+.card-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Form styling */
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form field styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+/* Center form */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
