@@ -1,10 +1,26 @@
+<div class="best-seller">
+  <div class="best-seller-card">
+    <h3><i class="fa fa-star"></i> Best Seller of the Month</h3>
+    <div *ngIf="bestSeller" class="best-seller-info">
+      <p><strong>Name:</strong> {{ bestSeller.nom }}</p>
+      <p><strong>Category:</strong> {{ bestSeller.categorie }}</p>
+      <p><strong>Unit Price:</strong> €{{ bestSeller.prixUnitaire }}</p>
+      <p><strong>Total Sales:</strong> {{ bestSeller.ventesTotales }} units</p>
+      <p><strong>Total Revenue:</strong> €{{ bestSeller.revenuTotal }}</p>
+    </div>
+    <div *ngIf="!bestSeller" class="loading-message">
+      <p>Loading best seller data...</p>
+    </div>
+  </div>
+</div>
 
 <div class="chart-container">
   <!-- Pie Chart -->
-  <div #pieChart style="width: 100%; height: 400px;"></div>
+  <div #pieChart class="chart" style="height: 400px;"></div>
 
   <!-- Line Chart for Turnover -->
-  <div #lineChart style="width: 100%; height: 400px; margin-top: 20px;"></div>
+  <div #lineChart class="chart" style="height: 400px;"></div>
+
+  <!-- Bar Chart for Reclamations -->
+  <div #barChart class="chart" style="height: 400px;"></div>
 </div>
-
-

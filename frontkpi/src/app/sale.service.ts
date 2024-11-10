@@ -33,10 +33,13 @@ export class SaleService {
   addProduct(product: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/addProduct`, product);
   }
-  getBestSeller(): Observable<BestSeller> {
-    return this.http.get<BestSeller>(`${this.apiUrl}/getBestSeller`).pipe(
+  getBestSeller(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/getBestSeller`).pipe(
       catchError(this.handleError)
     );
+  }
+  getReclamation(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/getReclamations`);
   }
 
   // Error handling

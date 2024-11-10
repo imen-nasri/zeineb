@@ -11,11 +11,15 @@ declare var google: any;
 export class DashboardComponent implements OnInit, AfterViewInit {
   salesData: any[] = [];
   turnoverData: any;
+  reclamationData: any[] = [];
+  bestSeller: any = null;
 
   loading = true;
   error: string | null = null;
   @ViewChild('pieChart') pieChart!: ElementRef;
   @ViewChild('lineChart') lineChart!: ElementRef;
+  @ViewChild('barChart') barChart!: ElementRef; // Add a ViewChild for the bar chart
+
    today = new Date();
    formattedDate = `${this.today.getFullYear()}-${String(this.today.getMonth() + 1).padStart(2, '0')}`;
 
@@ -24,6 +28,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.fetchSalesData();
     this.fetchTurnoverData();
+    this.fetchReclamationData();
+    this.fetchBestSeller();
 
   }
 
@@ -54,6 +60,20 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
   }
 
+  fetchReclamationData(): void {
+    this.saleService.getReclamation().subscribe({
+      next: (data: any[]) => {
+        this.reclamationData = data;
+        console.log(this.reclamationData);
+        
+        this.drawBarChart();
+      },
+      error: (err) => {
+        this.error = err;
+        this.loading = false;
+      }
+    });
+  }
   drawPieChart(): void {
     const chartData = [['Sale Overview', 'Total Sales']];
     
@@ -98,12 +118,56 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     chart.draw(lineData, options);
   }
 
+  drawBarChart(): void {
+    if (this.barChart && this.barChart.nativeElement) {
+      const statusCounts = this.reclamationData.reduce((counts, reclamation) => {
+        const statut = reclamation.reclamations.statut;
+        counts[statut] = (counts[statut] || 0) + 1;
+        console.log(counts);
+        return counts; 
+      }, {});
+
+      const chartData = [
+        ['Statut', 'Count'],
+        ['Non Résolue', statusCounts['non résolue']],
+        ['Résolue', statusCounts['résolue']],
+      ];
+
+      const data = google.visualization.arrayToDataTable(chartData);
+
+      const options = {
+        title: 'Reclamation Status',
+        backgroundColor: '#e2effb',
+        hAxis: { title: 'Status' },
+        vAxis: { title: 'Number of Reclamations' },
+        bars: 'vertical', 
+      };
+
+      const chart = new google.visualization.BarChart(this.barChart.nativeElement);
+      chart.draw(data, options);
+    }
+  }
+
   ngAfterViewInit(): void {
     google.charts.load('current', { packages: ['corechart'] });
     google.charts.setOnLoadCallback(() => {
       if (!this.loading) {
         this.drawPieChart();
         this.drawLineChart();
+        this.drawBarChart();
+      }
+    });
+  }
+
+  fetchBestSeller(): void {
+    this.saleService.getBestSeller().subscribe({
+      next: (data) => {
+        this.bestSeller = data; 
+        console.log(this.bestSeller) // Store the best seller data
+      },
+      error: (err) => {
+        this.error = err;
+        this.loading = false;
       }
     });
   }
