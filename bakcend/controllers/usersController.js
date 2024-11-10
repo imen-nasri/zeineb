@@ -1,4 +1,4 @@
-// controllers/usersController.js
+const bcrypt = require('bcrypt'); // or 'bcryptjs' if you're using bcryptjs// controllers/usersController.js
 const User = require("../models/User");
 
 // Get all users
@@ -59,7 +59,7 @@ const updateUser = async (req, res) => {
 
 // Delete a user (Admin only)
 const deleteUser = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params; // Extract id from URL params, not from body
 
   if (!id) {
     return res.status(400).json({ message: "User ID required" });
@@ -74,6 +74,7 @@ const deleteUser = async (req, res) => {
 
   res.json({ message: 'User deleted successfully' });
 };
+
 
 module.exports = {
   getAllUsers,

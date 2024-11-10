@@ -1,28 +1,39 @@
-<!-- users.component.html -->
-<div class="main-content">
-    <h2 class="section-title">User List</h2>
+<h2 class="section-title">User List</h2>
+
+<!-- Add New User Form -->
+<form (ngSubmit)="editingUser ? updateUser(editingUser._id) : createUser()">
+  <input type="text" [(ngModel)]="editingUser ? editingUser.first_name : newUser.first_name" name="first_name" placeholder="First Name" required />
+  <input type="text" [(ngModel)]="editingUser ? editingUser.last_name : newUser.last_name" name="last_name" placeholder="Last Name" required />
+  <input type="email" [(ngModel)]="editingUser ? editingUser.email : newUser.email" name="email" placeholder="Email" required />
+  <input type="password" [(ngModel)]="editingUser ? editingUser.password : newUser.password" name="password" placeholder="password" required />
+
   
-    <div *ngIf="users.length; else noUsers" class="table-container">
-      <table class="sales-table">
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users" class="sales-item">
-            <td>{{ user.first_name }}</td>
-            <td>{{ user.last_name }}</td>
-            <td>{{ user.email }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <ng-template #noUsers>
-      <p class="loading">No users found.</p>
-    </ng-template>
-  </div>
-  
+  <button type="submit">{{ editingUser ? 'Update User' : 'Add User' }}</button>
+</form>
+
+<!-- User Table -->
+<div *ngIf="users.length; else noUsers" class="table-container">
+  <table class="sales-table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" class="sales-item">
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.email }}</td>
+        
+      
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noUsers>
+  <p class="loading">No users found.</p>
+</ng-template>
